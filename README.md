@@ -10,7 +10,7 @@ PGN_DP contains the script to run Pointer Generation Network in Debatepedia Data
 
 BERT_SUM contains the script to run BERTSUM in Debatepedia Dataset. Most of the codes are collected from the official [Repository](https://github.com/nlpyang/PreSumm)
 
-Instructions to run the codes are given in the official repositories of each file. 
+Instructions to run the codes are given in the official repositories of each model. 
 
 For PGN_DP pre-processed bin files are given [here](https://github.com/tahmedge/Text-Summarization/tree/master/PGN_DP/dp_stories_PGN) to run the model in Debatepedia dataset.
 
