@@ -1,0 +1,33 @@
+
+export RAW_PATH="/home/irlab/PycharmProject/BERTSUMM/train_stories"
+export TOKENIZED_PATH="/home/irlab/PycharmProject/BERTSUMM/train_stories_tokenized"
+python src/preprocess.py -mode tokenize -raw_path $RAW_PATH -save_path $TOKENIZED_PATH
+
+python preprocess.py -mode format_to_lines -raw_path RAW_PATH -save_path JSON_PATH -n_cpus 1 -use_bert_basic_tokenizer false -map_path MAP_PATH
+
+python preprocess.py -mode format_to_lines -raw_path RAW_PATH -save_path JSON_PATH -n_cpus 1 -use_bert_basic_tokenizer false -map_path MAP_PATH
+
+python train.py -task ext -mode train -bert_data_path $BERT_DATA_PATH -ext_dropout 0.1 -model_path $MODEL_PATH -lr 2e-3 -visible_gpus -1 -report_every 50 -save_checkpoint_steps 1000 -batch_size 3000 -train_steps 5000 -accum_count 2 -log_file ../logs/dp.log -use_interval true -warmup_steps 1000 -max_pos 128
+python train.py  -task abs -mode train -bert_data_path $BERT_DATA_PATH -dec_dropout 0.2  -model_path $MODEL_PATH -sep_optim true -lr_bert 0.002 -lr_dec 0.2 -save_checkpoint_steps 2000 -batch_size 140 -train_steps 20000 -report_every 50 -accum_count 5 -use_bert_emb true -use_interval true -warmup_steps_bert 20000 -warmup_steps_dec 1000 -max_pos 128 -visible_gpus -1  -log_file ../logs/dp.log
+python train.py  -task abs -mode train -bert_data_path $BERT_DATA_PATH -dec_dropout 0.2  -model_path $MODEL_PATH -sep_optim true -lr_bert 0.002 -lr_dec 0.2 -save_checkpoint_steps 2000 -batch_size 140 -train_steps 20000 -report_every 50 -accum_count 5 -use_bert_emb true -use_interval true -warmup_steps_bert 20000 -warmup_steps_dec 1000 -max_pos 128 -visible_gpus -1 -log_file ../logs/dp.log  -load_from_extractive $EXT_CKPT
+
+/home/tahmedge/PycharmProjects/BERTSUMNEW/PreSumm-master/models
+
+python train.py -task ext -mode train -bert_data_path $BERT_DATA_PATH -ext_dropout 0.1 -model_path $MODEL_PATH -lr 2e-3 -visible_gpus -1 -report_every 50 -save_checkpoint_steps 1000 -batch_size 3000 -train_steps 5000 -accum_count 2 -log_file ../logs/dp.log -use_interval true -warmup_steps 1000 -max_pos 128 -train_from $MODEL_PATH"/model_step_2000.pt"
+
+export CLASSPATH=/home/irlab/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar
+
+
+export RAW_PATH="/home/tahmedge/PycharmProjects/BERTSUMNEW/PreSumm-master/dp_stories_tokenized_presumm_json_data/"
+export JSON_PATH="/home/tahmedge/PycharmProjects/BERTSUMNEW/PreSumm-master/dp_stories_tokenized_presumm_simple_json_data/"
+
+
+python preprocess.py -mode format_to_lines -raw_path $RAW_PATH -save_path $JSON_PATH -n_cpus 1 -use_bert_basic_tokenizer false
+
+
+export JSON_PATH="/home/tahmedge/PycharmProjects/BERTSUMNEW/PreSumm-master/dp_stories_tokenized_presumm_simple_json_data/"
+export BERT_DATA_PATH="/home/tahmedge/PycharmProjects/BERTSUMNEW/PreSumm-master/dp_bert_data/"
+
+python preprocess.py -mode format_to_bert -raw_path $JSON_PATH -save_path $BERT_DATA_PATH  -lower -n_cpus 1
+
+python train.py  -task abs -mode train -bert_data_path $BERT_DATA_PATH -dec_dropout 0.2  -model_path $MODEL_PATH -sep_optim true -lr_bert 0.002 -lr_dec 0.2 -save_checkpoint_steps 2000 -batch_size 140 -train_steps 20000 -report_every 500 -accum_count 5 -use_bert_emb true -use_interval true -warmup_steps_bert 2000 -warmup_steps_dec 1000 -max_pos 128 -visible_gpus -1 -log_file ../logs/dp.log  -load_from_extractive $EXT_CKPT

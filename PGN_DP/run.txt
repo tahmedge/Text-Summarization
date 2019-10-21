@@ -1,0 +1,18 @@
+python2 run_summarization.py --mode=train --data_path="dp_stories_tokenized_relevance/train.bin" --vocab_path="dp_stories_tokenized_relevance/vocab" --log_root="dp_stories_tokenized_relevance/Result/" --exp_name=myexperiment
+python2 run_summarization.py --mode=eval --data_path="dp_stories_tokenized_relevance/valid.bin" --vocab_path="dp_stories_tokenized_relevance/vocab" --log_root="dp_stories_tokenized_relevance/Result/" --exp_name=myexperiment
+python2 run_summarization.py --mode=decode --data_path="dp_stories_tokenized_relevance/valid.bin" --vocab_path="dp_stories_tokenized_relevance/vocab" --log_root="dp_stories_tokenized_relevance/Result/" --exp_name=myexperiment
+python2 run_summarization.py --mode=decode --data_path="dp_stories_tokenized_relevance/test.bin" --vocab_path="dp_stories_tokenized_relevance/vocab" --log_root="dp_stories_tokenized_relevance/Result/" --exp_name=myexperiment
+python2 run_summarization.py --mode=train --data_path="BERT_DATA/train.bin" --vocab_path="BERT_DATA/vocab" --log_root="BERT_DATA/Result/" --exp_name=myexperiment
+python2 run_summarization.py --mode=eval --data_path="BERT_DATA/valid.bin" --vocab_path="BERT_DATA/vocab" --log_root="BERT_DATA/Result/" --exp_name=myexperiment
+python2 run_summarization.py --mode=decode --data_path="BERT_DATA/test.bin" --vocab_path="BERT_DATA/vocab" --log_root="BERT_DATA/Result/" --exp_name=myexperiment
+
+
+python2 make_datafiles_new_with_relevant.py
+export CLASSPATH="/home/tahmedge/PycharmProjects/BERTSUMNEW/PreSumm-master/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar"
+
+export dataset="dp_stories_tokenized_relevance_long_PGN/"
+python2 run_summarization.py --mode=train --data_path=$dataset"train.bin" --vocab_path=$dataset"vocab" --log_root=$dataset"Result/" --exp_name=myexperiment
+export dataset="dp_stories_tokenized_relevance_long_PGN/"
+python2 run_summarization.py --mode=eval --data_path=$dataset"valid.bin" --vocab_path=$dataset"vocab" --log_root=$dataset"Result/" --exp_name=myexperiment
+export dataset="dp_stories_tokenized_relevance_long_PGN/"
+python2 run_summarization.py --mode=decode --data_path=$dataset"test.bin" --vocab_path=$dataset"vocab" --log_root=$dataset"/Result/" --exp_name=myexperiment
