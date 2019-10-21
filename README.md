@@ -12,6 +12,6 @@ BERT_SUM contains the script to run BERTSUM in Debatepedia Dataset. Most of the 
 
 Instructions to run the codes are given in the official repositories of each file. 
 
-For PGN_DP pre-processed bin files are given to run the model in Debatepedia dataset.
+For PGN_DP pre-processed bin files are given [here](https://github.com/tahmedge/Text-Summarization/tree/master/PGN_DP/dp_stories_PGN) to run the model in Debatepedia dataset.
 
-For BERTSUM, pre-processed python files are given to run the model in Debatepedia dataset.
+For BERTSUM, pre-processed python files are given [here](https://github.com/tahmedge/Text-Summarization/tree/master/BERTSUM_QFAS/dp_stories_tokenized_newline_without_query_bert) to run the model in Debatepedia dataset.
