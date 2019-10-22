@@ -2,9 +2,9 @@
 
 There are 4 folders.
 
-DDA_Augmented contains the script to run Diversity Based Attention with Augmented Debatepedia Training Data. Most of the codes are collected from the official [Repository](https://github.com/PrekshaNema25/DiverstiyBasedAttentionMechanism)
+DDA_Augmented contains the script to run Diversity Driven Attention model with Augmented Debatepedia Training Data. Most of the codes are collected from the official [Repository](https://github.com/PrekshaNema25/DiverstiyBasedAttentionMechanism)
 
-DDA_Original contains the script to run Diversity Based Attention without Augmented Debatepedia Training Data. Most of the codes are collected from the official [Repository](https://github.com/PrekshaNema25/DiverstiyBasedAttentionMechanism)
+DDA_Original contains the script to run Diversity Driven Attention model without Augmented Debatepedia Training Data. Most of the codes are collected from the official [Repository](https://github.com/PrekshaNema25/DiverstiyBasedAttentionMechanism)
 
 PGN_DP contains the script to run Pointer Generation Network in Debatepedia Dataset. Most of the codes are collected from this [Repository](https://github.com/talbaumel/RSAsummarization) and the official [Repository](https://github.com/abisee/pointer-generator)
 
