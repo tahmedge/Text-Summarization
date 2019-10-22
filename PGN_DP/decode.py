@@ -116,9 +116,9 @@ class BeamSearchDecoder(object):
       # Remove the [STOP] token from decoded_words, if necessary
       try:
         fst_stop_idx = decoded_words.index(data.STOP_DECODING) # index of the (first) [STOP] symbol
-        decoded_words = decoded_words[:fst_stop_idx]
+        decoded_words = decoded_words[:fst_stop_idx-1]
       except ValueError:
-        decoded_words = decoded_words
+        decoded_words = decoded_words[:-1]
       decoded_output = ' '.join(decoded_words) # single string
 
       if FLAGS.single_pass:
