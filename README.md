@@ -10,7 +10,7 @@ PGN_DP contains the script to run Pointer Generation Network in Debatepedia Data
 
 BERTSUM_QFAS contains the script to run BERTSUM in Debatepedia Dataset. Most of the codes are collected from the official [Repository](https://github.com/nlpyang/PreSumm)
 
-Instructions to run the codes are given in the official repository of each model. 
+Instructions to run the codes are given in the official repository of each model ([DDA](https://github.com/PrekshaNema25/DiverstiyBasedAttentionMechanism), [PGN](https://github.com/abisee/pointer-generator), [BERTSUM](https://github.com/tahmedge/Text-Summarization/tree/master/BERTSUM_QFAS/dp_stories_tokenized_newline_without_query_bert). 
 
 For DDA_Augmented and DDA_Original, 'data_fold' folder contains 10 fold cross validations data. The 'data' folder contains the dataset with given train-test-valid split for 1 fold experiment for few-shot learning to compare with PGN and BERTSUM.
 
