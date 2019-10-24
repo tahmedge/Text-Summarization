@@ -1,1 +1,1 @@
-Most of the code in this reposetory was taken from the official repository https://github.com/abisee/pointer-generator as well as https://github.com/talbaumel/RSAsummarization
+Most of the codes in this reposetory were taken from the official repository [Pointer Generation Network](https://github.com/abisee/pointer-generator). Also, codes were taken form this repository https://github.com/talbaumel/RSAsummarization
