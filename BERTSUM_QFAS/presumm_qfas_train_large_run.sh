@@ -5,7 +5,6 @@
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=125G
 #SBATCH --time=0-30:59
-#SBATCH --account=def-enamul
 
 source ~/ENV3/bin/activate
 
